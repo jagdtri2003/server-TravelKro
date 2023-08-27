@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 4000; // Set your desired port number
+const cors=require('cors');
 
 const nodemailer = require('nodemailer');
 
@@ -17,6 +18,7 @@ const transporter = nodemailer.createTransport({
 // Define your routes and middleware here
 
 app.use(express.json());
+app.use(cors());
 app.use('/flight',require('./routes/flight'));
 
 
