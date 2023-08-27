@@ -65,11 +65,11 @@ app.post('/flight',(req,res)=>{
               }
               
               .container {
-                  max-width: 600px;
+                  max-width: 500px;
                   margin: 0 auto;
                   padding: 20px;
                   background-color: #ffffff;
-                  border-radius: 10px;
+                  border-radius: 30px;
                   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
               }
               
@@ -78,7 +78,7 @@ app.post('/flight',(req,res)=>{
               }
               
               p {
-                  font-size: 16px;
+                  font-size: 15px;
                   color: #666;
               }
               
