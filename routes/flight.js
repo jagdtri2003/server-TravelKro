@@ -36,7 +36,7 @@ const transporter = nodemailer.createTransport({
                   padding: 20px;
                   background-color: #ffffff;
                   border-radius: 30px;
-                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
               }
               
               h1 {
@@ -61,7 +61,7 @@ const transporter = nodemailer.createTransport({
       <body>
           <div class="container">
               <h1>Flight Reservation Confirmation</h1>
-              <p>Dear ${req.body.username},</p>
+              <p>Dear ${req.body.username},<br>Your Flight Booking have been confirmed and below is the detail for same.</p>
               <!-- Insert dynamic data here -->
               <p><strong>Flight Name:</strong> ${req.body.flightName}</p>
               <p><strong>Departure:</strong> ${req.body.departureCity}</p>
