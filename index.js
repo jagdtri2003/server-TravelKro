@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   port:587,
   auth: {
     user: 'heruko.pythonanywhere@gmail.com',  // Your Gmail email address
-    pass: 'nTmdLEXBKAgjFcJV'         // Your Gmail password or app password
+    pass:process.env.REACT_APP_PASS     // Your Gmail password or app password
   }
 });
 
@@ -27,7 +27,7 @@ app.get('/',(req,res)=>{
     res.send("Working!!");
 })
 
-app.post('/send-mail', (req, res) => {
+app.post('/sendmail', (req, res) => {
 
     // Email data
     const mailOptions = {
