@@ -83,7 +83,7 @@ const transporter = nodemailer.createTransport({
   };
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-        res.sendStatus(400).json({"Error":"Bad Request"});
+        res.sendStatus(400);
     } else {
         res.send("Email Send!!");
     }
