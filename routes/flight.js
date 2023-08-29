@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
   router.post('/',(req,res)=>{
     const mailOptions={
-      from:"noreply@travelkro.in",
+      from:"TravelKro <noreply@travelkro.in>",
       to:req.body.userEmail,
       subject:"Flight Confirmation Details",
       html:`

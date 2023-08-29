@@ -36,7 +36,7 @@ app.post('/sendmail', (req, res) => {
     // Email data
     const mailOptions = {
         from: 'noreply@travelkro.in',
-        to: req.body.usermail,
+        to: req.body.userEmail,
         subject: 'Hello from Nodemailer',
         text: 'Hello, this is a test email sent with Nodemailer!'
     };
