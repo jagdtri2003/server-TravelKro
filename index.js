@@ -52,7 +52,7 @@ app.post('/hbsendotp',ipRateLimiter, async (req, res) => {
       if (error) {
           res.send(error);
       } else {
-          res.json({ success: true, message: 'OTP send successfully!' });
+          res.status(200).json({ success: true, message: 'OTP send successfully!' });
       }
   }); 
 })
