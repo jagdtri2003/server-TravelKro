@@ -399,7 +399,7 @@ function processTemplate(template, data) {
 }
 
 // Route: POST /send-cancellation
-router.post('/send-cancellation', async (req, res) => {
+router.post('/', async (req, res) => {
   const booking = req.body;
 
   if (!booking.email || !booking.customerName || !booking.referenceId) {
