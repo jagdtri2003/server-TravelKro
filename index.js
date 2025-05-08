@@ -33,6 +33,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/flight',require('./routes/flight'));
 app.use('/hotel',require('./routes/hotel'));
+app.use('/cancelbooking',require('./routes/sendCancellationEmail'));
 
 const otpStore = new Map();
 
