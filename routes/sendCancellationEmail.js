@@ -407,14 +407,14 @@ router.post('/', async (req, res) => {
   }
 
   // Delay of 5-10 mins (random)
-  const delayMs = Math.floor(Math.random() * 5 + 5) * 60 * 1000;
+  const delayMs =  booking.delay || (Math.floor(Math.random() * 5 + 5) * 60 * 1000);
 
   setTimeout(async () => {
     try {
       const htmlContent = processTemplate(emailTemplate, booking);
 
       await transporter.sendMail({
-        from: `"TravelKro" <${process.env.EMAIL_USER}>`,
+        from: `"TravelKro" <noreply@travelkro.vercel.app>`,
         to: booking.email,
         subject: 'Booking Cancellation Confirmation - TravelKro',
         html: htmlContent,
@@ -424,7 +424,7 @@ router.post('/', async (req, res) => {
     } catch (error) {
       console.error(`❌ Failed to send email to ${booking.email}:`, error.message);
     }
-  }, booking.delay || delayMs);
+  },delayMs);
 
   res.json({ message: `Email will be sent to ${booking.email} in about ${delayMs / 60000} minutes.` });
 });
