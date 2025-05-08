@@ -59,7 +59,7 @@ const transporter = nodemailer.createTransport({
       </head>
       <body>
           <div class="container">
-              <h1>Flight Reservation Confirmation</h1>
+              <h1>Hotel Reservation Confirmation</h1>
               <p>Dear ${req.body.username},<br>Your Hotel Booking have been confirmed and below is the detail for same.</p>
               <!-- Insert dynamic data here -->
               <p><strong>Hotel Name:</strong> ${req.body.hotelName}</p>
