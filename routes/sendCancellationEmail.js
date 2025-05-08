@@ -386,12 +386,13 @@ const emailTemplate = `
 
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // change if using another provider
-  auth: {
-    user: 'heruko.pythonanywhere@gmail.com',
-    pass:process.env.REACT_APP_PASS ,
-  },
-});
+    host:'smtp-relay.brevo.com',
+    port:587,
+    auth: {
+      user: 'heruko.pythonanywhere@gmail.com',  // Your Gmail email address
+      pass:process.env.REACT_APP_PASS     // Your Gmail password or app password
+    }
+  });
 
 // Simple template processor (Handlebars-like)
 function processTemplate(template, data) {
