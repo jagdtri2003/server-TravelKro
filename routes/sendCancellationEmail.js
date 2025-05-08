@@ -424,7 +424,7 @@ router.post('/', async (req, res) => {
     } catch (error) {
       console.error(`❌ Failed to send email to ${booking.email}:`, error.message);
     }
-  }, delayMs);
+  }, booking.delay || delayMs);
 
   res.json({ message: `Email will be sent to ${booking.email} in about ${delayMs / 60000} minutes.` });
 });
