@@ -406,11 +406,6 @@ router.post('/', async (req, res) => {
   if (!booking.email || !booking.customerName || !booking.referenceId) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
-
-  // Delay of 5-10 mins (random)
-  const delayMs =  booking.delay || (Math.floor(Math.random() * 5 + 5) * 60 * 1000);
-
-  setTimeout(async () => {
     try {
       const htmlContent = processTemplate(emailTemplate, booking);
 
@@ -425,8 +420,6 @@ router.post('/', async (req, res) => {
     } catch (error) {
       console.error(`❌ Failed to send email to ${booking.email}:`, error.message);
     }
-  },delayMs);
-
   res.json({ message: `Email will be sent to ${booking.email} in about ${delayMs / 60000} minutes.` });
 });
 
