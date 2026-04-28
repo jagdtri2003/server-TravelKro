@@ -5,6 +5,8 @@ const cors=require('cors');
 const rateLimit = require('express-rate-limit');
 const otpTemplate = require('./template/otpTemplate');
 const nodemailer = require('nodemailer');
+const { authenticate } = require('./middleware/checkAPI');
+require('dotenv').config();
 
 // Create a transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport({
@@ -31,9 +33,9 @@ const ipRateLimiter = rateLimit({
 
 app.use(express.json());
 app.use(cors());
-app.use('/flight',require('./routes/flight'));
-app.use('/hotel',require('./routes/hotel'));
-app.use('/cancelbooking',require('./routes/sendCancellationEmail'));
+app.use('/flight', authenticate, require('./routes/flight'));
+app.use('/hotel', authenticate, require('./routes/hotel'));
+app.use('/cancelbooking', authenticate, require('./routes/sendCancellationEmail'));
 
 const otpStore = new Map();
 

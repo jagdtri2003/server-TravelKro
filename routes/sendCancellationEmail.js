@@ -6,12 +6,13 @@ const flightTemplate = require('../template/cancelFlight');
 const hotelTemplate = require('../template/cancelHotel');
 
 
+
 const transporter = nodemailer.createTransport({
     host:'smtp-relay.brevo.com',
     port:587,
     auth: {
       user: 'heruko.pythonanywhere@gmail.com',  // Your Gmail email address
-      pass:process.env.REACT_APP_PASS || 'nTmdLEXBKAgjFcJV'   // Your Gmail password or app password
+      pass:process.env.REACT_APP_PASS    // Your Gmail password or app password
     }
   });
 
